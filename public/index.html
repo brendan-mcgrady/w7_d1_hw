@@ -15,7 +15,11 @@
 
   <h1>ToDo List</h1>
   <ul>
-    <li v-for="toDo in toDos">{{toDo}}</li>
+    <li v-for="(toDo, index) in toDos" :class="toDo.isPriority ? 'priority':'not-priority'">
+      <span>{{toDo.toDoItem}}</span>
+      <span v-if="toDo.isPriority">Off yer bum n get this done</span>
+      <button v-if="!toDo.isPriority" @click="toDoPriority(index)">Acht yer right, am sure it can wait</button>
+    </li>
   </ul>
 
   <form @submit.prevent="saveNewToDo">

@@ -4,13 +4,22 @@ import Vue from 'vue';
     new Vue({
       el: "#app",
       data: {
-        toDos: ["Pit oan a washin", "Take the dug oot fur a walk", "Git onnit"],
+        toDos: [
+          {toDoItem: "Pit oan a washin", priority: false},
+          {toDoItem: "Take the dug oot fur a walk", priority: false},
+          {toDoItem: "Git onnit", priority: true}
+        ],
         newToDo: ""
       },
       methods: {
-        saveNewToDo: function(newToDo){
-          newToDo = this.newToDo
+        saveNewToDo: function(){
+          let newToDo = {toDoItem: this.newToDo, priority: false}
           this.toDos.push(newToDo)
+          this.newToDo = ""
+        },
+
+        toDoPriority: function(index){
+          this.toDos[index].priority = true
         }
       }
     })
