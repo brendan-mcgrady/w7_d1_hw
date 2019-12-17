@@ -8,7 +8,8 @@ import Vue from 'vue';
         newToDo: ""
       },
       methods: {
-        saveNewToDo: function(){
+        saveNewToDo: function(newToDo){
+          newToDo = this.newToDo
           this.toDos.push(newToDo)
         }
       }
