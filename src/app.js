@@ -13,12 +13,12 @@ import Vue from 'vue';
       },
       methods: {
         saveNewToDo: function(){
-          let newToDo = {toDoItem: this.newToDo, priority: false}
+          let newToDo = {toDoItem: this.newToDo, priority: true}
           this.toDos.push(newToDo)
           this.newToDo = ""
         },
 
-        toDoPriority: function(index){
+        setPriority: function(index){
           this.toDos[index].priority = true
         }
       }
